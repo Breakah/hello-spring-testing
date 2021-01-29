@@ -27,4 +27,4 @@ test-job:
 deploy-job:
   stage: deploy
   script:
-    - echo "deploy"
+    - echo "deploy ........"
