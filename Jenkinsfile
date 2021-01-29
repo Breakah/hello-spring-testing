@@ -10,7 +10,9 @@ pipeline {
     }
     stages {
         stage('Setup'){
-                git url:'https://github.com/Breakah/hello-spring-testing.git',branch:'master'             
+            steps{
+                git url:'https://github.com/Breakah/hello-spring-testing.git',branch:'master' 
+            }            
         }
         stage('Test'){
             steps{
