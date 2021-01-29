@@ -1,0 +1,30 @@
+stages:
+  - test
+  - build
+  - deploy
+
+default: 
+  image: openjdk:15-jdk
+
+build-job:
+  stage: build
+  script:
+    - ./gradlew assemble
+  artifacts:
+    when: always
+    paths:
+      - build/libs/*.jar
+
+test-job:
+  stage: test
+  script:
+    - ./gradlew test
+  artifacts:
+    when: always
+    junit:
+      - build/test-results/test/TEST-*.xml
+
+deploy-job:
+  stage: deploy
+  script:
+    - echo "deploy"
