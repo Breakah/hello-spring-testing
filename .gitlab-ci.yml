@@ -21,8 +21,9 @@ test-job:
     - ./gradlew test
   artifacts:
     when: always
-    paths:
-      - build/test-results/test/TEST-*.xml
+    reports:           
+      junit:                
+        - build/test-results/test/TEST-*.xml
 
 deploy-job:
   stage: deploy
