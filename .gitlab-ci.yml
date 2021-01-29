@@ -21,7 +21,7 @@ test-job:
     - ./gradlew test
   artifacts:
     when: always
-    junit:
+    script:
       - build/test-results/test/TEST-*.xml
 
 deploy-job:
