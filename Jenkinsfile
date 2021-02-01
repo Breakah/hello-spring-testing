@@ -16,12 +16,24 @@ pipeline {
         stage('Test'){
             steps{
                 withGradle{
+                    sh './gradlew test'
+                }
+            }
+            post{
+                always{
+                    junit 'build/test-results/test/TEST-*.xml'    
+                }
+            }          
+        }
+        stage('Test-pitest'){
+            steps{
+                withGradle{
                     sh './gradlew clean pitest'
                 }
             }
             post{
                 always{
-                    pitmutation mutationStatsFile: 'build/reports/pitest/*/mutations.xml'  
+                    pitmutation mutationStatsFile: 'build/reports/pitest/**/mutations.xml'  
                 }
             }          
         }
