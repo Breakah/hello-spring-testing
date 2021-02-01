@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.2.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
-	id 'jacoco'
+	id 'info.solidsoft.pitest' version '1.5.1'
 }
 
 group = 'com.example'
@@ -22,12 +22,15 @@ dependencies {
 
 test {
 	useJUnitPlatform()
-	finalizedBy jacocoTestReport
 }
-jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
-}
-jacoco {
-    toolVersion = "0.8.6"
-    reportsDir = file("$buildDir/customJacocoReportDir")
-}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        //Needed only for SNAPSHOT versions
+        //maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    }
+    dependencies {
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.5.1'
+    }
+} 
