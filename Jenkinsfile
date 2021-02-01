@@ -23,7 +23,9 @@ pipeline {
             post{
                 always{
                     junit 'build/test-results/test/TEST-*.xml'  
-                    echo "Test Guardados en build/test-results/test/TEST-*.xml"
+                    echo "--------------------------- Test Guardados en build/test-results/test/TEST-*.xml",
+                    jacoco(execPattern: 'build/jacoco/jacoco.exec'),
+                    echo "--------------------------- Jacoco guardado en build/jacoco/*.exec"
                 }
             }          
         }
@@ -37,7 +39,7 @@ pipeline {
             post{
                 success{
                     archiveArtifacts 'build/libs/*.jar'
-                    echo ".Jar Guardados en build/libs"
+                    echo "--------------------------- .Jar Guardados en build/libs"
                 }
             }            
         }
