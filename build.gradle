@@ -24,13 +24,10 @@ test {
 	useJUnitPlatform()
 }
 
-buildscript {
-    repositories {
-        mavenCentral()
-        //Needed only for SNAPSHOT versions
-        //maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-    }
-    dependencies {
-        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.5.1'
-    }
-} 
+pitest {
+targetClasses = ["${project.group}.*"] //by default "${project.group}.*"
+junit5PluginVersion = '0.12'
+threads = 4
+outputFormats = ['XML', 'HTML']
+timestampedReports = false
+}
