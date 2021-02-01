@@ -21,7 +21,7 @@ pipeline {
             }
             post{
                 always{
-                    junit 'build/reports/pitest/**/mutations.xml'  
+                    pitmutation mutationsStatsFile: 'build/reports/pitest/**/mutations.xml'  
                 }
             }          
         }
