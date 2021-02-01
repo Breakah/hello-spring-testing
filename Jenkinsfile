@@ -23,7 +23,7 @@ pipeline {
             post{
                 always{
                     junit 'build/test-results/test/TEST-*.xml'  
-                    echo "Test Guardados en build/test-results/test/TEST-*.xml",
+                    echo "Test Guardados en build/test-results/test/TEST-*.xml"
                 }
             }          
         }
