@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.2.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id "org.owasp.dependencycheck" version "6.1.0"
 }
 
 group = 'com.example'
@@ -21,4 +22,7 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+dependencyCheck {
+   formats=['HTML','JSON','XML']
 }
