@@ -19,11 +19,11 @@ pipeline {
                 	sh './gradlew dependencyCheckAnalyze'
 		}                
             }
-            /*post {
+            post {
                 always {
-                	recordIssues enabledForFailure: true, aggregatingResults:true, tool: trivy(pattern: 'trivy-*.json')
+			dependencyCheckPublisher pattern: 'build/reports/dependency-check-report.xml'
                 }
-            }*/
+            }
         }        
     }
 }
