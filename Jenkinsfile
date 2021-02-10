@@ -27,7 +27,7 @@ pipeline {
         }   
         stage('Publish'){
             steps{
-                withCredentials([string(credentialsId: 'maven', variable: 'TOKEN')]) {
+                withCredentials([string(credentialsId: 'apache_archiva',variable: 'TOKEN')]) {
                     sh './gradlew publish'
                 }
             }

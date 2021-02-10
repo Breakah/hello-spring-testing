@@ -32,15 +32,20 @@ publishing {
         publications {
                 bootJava(MavenPublication){ 
 			artifact bootJar
-                }
+               		version="0.0."+(System.getenv('BUILD_NUMBER')?:'0')+"-SNAPSHOT"
+		 }
         }
         repositories {
             maven {
                 url "http://10.250.8.1:9082/repository/snapshots/"
-                credentials{
-                    username 'admin'
-		    password 'Breakah159'
-                }
             }
+		credentials(HttpHeaderCredentials) {
+                    name = 'Private-Token'
+                    value = System.getenv('USER')//gitLabPrivateToken
+                }
+                authentication {
+                    header(HttpHeaderAuthentication)
+                }
+
         }
 }
