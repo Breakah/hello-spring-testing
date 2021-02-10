@@ -30,7 +30,7 @@ dependencyCheck {
 
 publishing {
         publications {
-                bootJava(MavenPublication) 
+                bootJava(MavenPublication){ 
 			artifact bootJar
                 }
         }
