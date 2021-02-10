@@ -30,22 +30,16 @@ dependencyCheck {
 
 publishing {
         publications {
-                bootJava(MavenPublication) {
-                        artifact bootJar
-			            version="0.0."+(System.getenv('BUILD_NUMBER')?:'0')+"-SNAPSHOT"
-
+                bootJava(MavenPublication) 
+			artifact bootJar
                 }
         }
         repositories {
             maven {
-                url "http://10.250.8.1:8929/api/v4/projects/9/packages/maven"
-                name "GitLab"
-                credentials(HttpHeaderCredentials) {
-                    name = 'Private-Token'
-                    value = System.getenv('TOKEN')//gitLabPrivateToken
-                }
-                authentication {
-                    header(HttpHeaderAuthentication)
+                url "http://10.250.8.1:9082/repository/snapshots/"
+                credentials{
+                    username 'admin'
+		    password 'Breakah159'
                 }
             }
         }
