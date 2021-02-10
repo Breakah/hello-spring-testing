@@ -32,7 +32,7 @@ publishing {
         publications {
                 bootJava(MavenPublication) {
                         artifact bootJar
-			//version="0.0.2-SNAPSHOT"
+			            version="0.0."+(System.getenv('BUILD_NUMBER')?:'0')+"-SNAPSHOT"
 
                 }
         }
