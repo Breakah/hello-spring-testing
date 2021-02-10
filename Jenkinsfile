@@ -27,7 +27,7 @@ pipeline {
         }   
         stage('Publish'){
             steps{
-                withCredentials([usernamePassword(credentialsId: 'apache_archiva', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'sonar_nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 
                     sh './gradlew publish'
                 }
