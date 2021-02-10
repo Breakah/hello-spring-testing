@@ -37,7 +37,7 @@ publishing {
         }
         repositories {
             maven {
-                url "httphttp://localhost:9084/repository/maven-snapshots/"
+                url "http://localhost:9084/repository/maven-snapshots/"
             
 		credentials{
                     username = System.getenv('USERNAME')
