@@ -38,14 +38,11 @@ publishing {
         repositories {
             maven {
                 url "http://10.250.8.1:9082/repository/snapshots/"
-            }
-		credentials(HttpHeaderCredentials) {
-                    name = 'Private-Token'
-                    value = System.getenv('USER')//gitLabPrivateToken
+            
+		credentials{
+                    username = System.getenv('USERNAME')
+                    password = System.getenv('PASSWORD')
                 }
-                authentication {
-                    header(HttpHeaderAuthentication)
-                }
-
+	    }
         }
 }

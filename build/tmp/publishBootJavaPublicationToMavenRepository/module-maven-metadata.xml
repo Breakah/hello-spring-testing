@@ -3,10 +3,11 @@
   <groupId>com.example</groupId>
   <artifactId>testingweb</artifactId>
   <versioning>
-    <latest>0.0.1-SNAPSHOT</latest>
+    <latest>0.0.0-SNAPSHOT</latest>
     <versions>
       <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20210210152147</lastUpdated>
+    <lastUpdated>20210210160013</lastUpdated>
   </versioning>
 </metadata>
